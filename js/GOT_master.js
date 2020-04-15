@@ -4,13 +4,17 @@
 (() => {
 
 //variables at the top -> elements on the page we need to work with
-let sigilButtons = document.querySelectorAll(".sigilContainer"),
+const sigilButtons = document.querySelectorAll(".sigilContainer"),
     lightBox = document.querySelector(".lightBox"),
     gotVideo = document.querySelector(".lightBoxVideo"),
     //can also write this as gotVideo = lightBox.querySelector("video")
     lightBoxClose = lightBox.querySelector(".lightBoxClose"),
     houseName = document.querySelector("h1"),
-    houseDescription = document.querySelector(".house-info");
+    houseDescription = document.querySelector(".house-info"),
+    playBtn = document.querySelector('#play-btn'),
+    volumeControl = document.querySelectorAll('.volume');
+    muteBtn = document.querySelector('#muteBtn');
+
 
 const houseData = [
     ["Stark",`House Stark of Winterfell is a Great House of Westeros, ruling over the vast region known as the North from their seat in Winterfell. It is one of the oldest lines of Westerosi nobility by far, claiming a line of descent stretching back over eight thousand years. Before the Targaryen conquest, as well as during the War of the Five Kings and Daenerys Targaryen's invasion of Westeros, the leaders of House Stark ruled over the region as the Kings in the North.`],
@@ -66,12 +70,66 @@ const houseData = [
     gotVideo.currentTime = 0;
   }
 
-// add a click event to the sigilButtons
-  sigilButtons.forEach(button => button.addEventListener("click", showLightBox))
+  function animateBanners() {
+      // animate the banners across the page using some basic math and class
+      let offsetValue = 600;
+      let targetValue = offsetValue * this.dataset.offset;
+      debugger;
+  }
 
-//add an event handler for the lightbox close sigilButton
+// add a click event to the sigilButtons --> this changes the text data and video source
+// sigilButtons.forEach(button => button.addEventListener("click", showLightBox))
+
+
+sigilButtons.forEach(button => button.addEventListener("click", showLightBox))
+
+//add an event handler for the lightbox close sigilButton --> will animate the banners across the top of the page
   lightBoxClose.addEventListener("click", hideLightBox);
 
+// for playing and pausing the video
+  function playPause() {
+
+      if (gotVideo.paused == true) {
+
+          gotVideo.play()
+
+          playBtn.innerHTML = "Pause";
+      } else {
+
+          gotVideo.pause()
+
+          playBtn.innerHTML = "Play";
+      }
+
+  }
+
+playBtn.addEventListener("click", playPause)
+
+// for muting and unmuting the video
+
+    function vidMute() {
+
+        if (gotVideo.muted) {
+
+            gotVideo.muted = false;
+
+            muteBtn.innerHTML = "Mute";
+        } else {
+
+            gotVideo.muted = true;
+
+            muteBtn.innerHTML = "UnMute";
+        }
+    }
+
+muteBtn.addEventListener("click", vidMute)
+
+volumeControl.forEach((volumeSlider) => {
+   volumeSlider.addEventListener('input', function() {
+      gotVideo.volume = this.value / 100;
+   });
+
+});
 
 
 })();

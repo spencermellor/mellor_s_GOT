@@ -104,6 +104,8 @@ main {
   top:0;
   width: 100vw; /* 100% of the viewport width*/
   height: 100vh;
+  align-items: center;
+  text-align: center;
 }
 
 .show-lightBox {
@@ -134,4 +136,21 @@ video {
     line-height: 1.5;
     width: 75%;
     margin: 0 auto;
+}
+
+.btn {
+    padding: 5px 15px 5px 15px;
+    font-size: 14px;
+    font-family: 'GOT_font';
+    justify-content: center;
+    margin-top: 15px;
+}
+
+label {
+    padding: 5px 15px 5px 15px;
+    font-size: 14px;
+    font-family: 'GOT_font';
+    justify-content: center;
+    margin-top: 15px;
+    color: #fff;
 }

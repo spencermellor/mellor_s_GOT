@@ -33,19 +33,21 @@
         </ul>
     </nav>
 
-    <h1>clever tagline goes here</h1><!-- replace this with the house name -->
+    <h1>CHOOSE YOUR SHEILD</h1><!-- replace this with the house name -->
 
-    <p class="house-info"></p><!-- replace this with house details (github gist) -->
+    <p class="house-info">Click on one of the shields above to learn more about the Game of Thrones!</p><!-- replace this with house details (github gist) -->
 </main>  <!--end mainContainer-->
 <!-- in body outside of main -->
 <section class="lightBox"><!--Start Light box Section-->
   <span class="lightBoxClose">X</span>
 
   <!--  show the current house video -->
-  <video class="lightBoxVideo" src="video/House-Stark.mp4" controls></video>
+  <video class="lightBoxVideo" src="video/House-Stark.mp4"></video>
   <!-- dont want to use the defults want to make the controls match the site -->
-  <button class="playPause">Pause</button>
-  <button class="reWind">ReWind</button>
+  <button id="play-btn" class="playPause btn">Pause</button>
+  <button id="muteBtn" class="btn">Mute</button>
+  <label for="volume-slider">Volume:</label>
+  <input id="volume-slider" type="range" min="1" max="100" class="volume" value="100">
 
 </section>
 
